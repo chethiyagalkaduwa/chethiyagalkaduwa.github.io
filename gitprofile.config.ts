@@ -68,9 +68,16 @@ const CONFIG = {
     
     {
       company: 'Indiana University Indianapolis, USA',
+      position: 'Research Assistantship',
+      from: 'August 2025',
+      to: 'Present',
+      companyLink: 'https://luddy.indianapolis.iu.edu/index.html',
+    },
+    {
+      company: 'Indiana University Indianapolis, USA',
       position: 'Graduate Assistantship',
       from: 'June 2025',
-      to: 'Present',
+      to: 'August 2025',
       companyLink: 'https://luddy.indianapolis.iu.edu/index.html',
     },
     {
