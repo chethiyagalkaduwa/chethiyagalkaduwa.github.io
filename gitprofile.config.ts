@@ -2,7 +2,7 @@
 
 const CONFIG = {
   github: {
-    username: 'chey97', // Your GitHub org/user name. (This is the only required config)
+    username: 'chethiyagalkaduwa', // Your GitHub org/user name. (This is the only required config)
   },
   /**
    * If you are deploying to https://<USERNAME>.github.io/, for example your repository is at https://github.com/arifszn/arifszn.github.io, set base to '/'.
@@ -67,6 +67,27 @@ const CONFIG = {
   experiences: [
     
     {
+      company: 'Indiana University Indianapolis, USA',
+      position: 'Research Assistantship',
+      from: 'August 2025',
+      to: 'Present',
+      companyLink: 'https://luddy.indianapolis.iu.edu/index.html',
+    },
+    {
+      company: 'Indiana University Indianapolis, USA',
+      position: 'Graduate Assistantship',
+      from: 'June 2025',
+      to: 'August 2025',
+      companyLink: 'https://luddy.indianapolis.iu.edu/index.html',
+    },
+    {
+      company: 'Indiana University Indianapolis, USA',
+      position: 'Graduate Teaching Assistantship',
+      from: 'January 2025',
+      to: 'June 2025',
+      companyLink: 'https://luddy.indianapolis.iu.edu/index.html',
+    },
+    {
       company: 'SLIIT(Sri Lankan Institution of Information and Technology), Sri Lanka',
       position: 'Asistant Lecturer',
       from: 'September 2024',
@@ -77,7 +98,7 @@ const CONFIG = {
       company: 'Cove Island, Sri Lanka',
       position: 'Python Developer',
       from: 'July 2024',
-      to: 'October 2024',
+      to: 'December 2024',
       companyLink: 'https://coveisland.lk',
     },
     {

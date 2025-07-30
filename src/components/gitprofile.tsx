@@ -15,7 +15,7 @@ import { SanitizedConfig } from '../interfaces/sanitized-config';
 import ErrorPage from './error-page';
 import HeadTagEditor from './head-tag-editor';
 import { DEFAULT_THEMES } from '../constants/default-themes';
-import ThemeChanger from './theme-changer';
+// import ThemeChanger from './theme-changer';
 import { BG_COLOR } from '../constants';
 import AvatarCard from './avatar-card';
 import { Profile } from '../interfaces/profile';
@@ -225,10 +225,10 @@ const GitProfile = ({ config }: { config: Config }) => {
                         research={sanitizedConfig.research}
                       />
                     )}
-                    {sanitizedConfig.skills.length !== 0 && (
-                      <SkillCard
+                    {sanitizedConfig.educations.length !== 0 && (
+                      <EducationCard
                         loading={loading}
-                        skills={sanitizedConfig.skills}
+                        educations={sanitizedConfig.educations}
                       />
                     )}
                     {sanitizedConfig.experiences.length !== 0 && (
@@ -237,16 +237,16 @@ const GitProfile = ({ config }: { config: Config }) => {
                         experiences={sanitizedConfig.experiences}
                       />
                     )}
+                    {sanitizedConfig.skills.length !== 0 && (
+                      <SkillCard
+                        loading={loading}
+                        skills={sanitizedConfig.skills}
+                      />
+                    )}
                     {sanitizedConfig.certifications.length !== 0 && (
                       <CertificationCard
                         loading={loading}
                         certifications={sanitizedConfig.certifications}
-                      />
-                    )}
-                    {sanitizedConfig.educations.length !== 0 && (
-                      <EducationCard
-                        loading={loading}
-                        educations={sanitizedConfig.educations}
                       />
                     )}
                   </div>

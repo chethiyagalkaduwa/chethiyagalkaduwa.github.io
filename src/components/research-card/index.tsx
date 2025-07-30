@@ -8,43 +8,35 @@ const ResearchCard = ({
   research: string[];
 }) => {
   const renderSkeleton = () => {
-    const array = [];
-    for (let index = 0; index < 12; index++) {
-      array.push(
-        <div key={index}>
-          {skeleton({ widthCls: 'w-16', heightCls: 'h-4', className: 'm-1' })}
-        </div>,
-      );
-    }
-
-    return array;
+    return Array.from({ length: 4 }, (_, index) => (
+      <div key={index} className="mb-2">
+        {skeleton({ widthCls: 'w-32', heightCls: 'h-5' })}
+      </div>
+    ));
   };
 
   return (
-    <div className="card shadow-lg compact bg-base-100">
-      <div className="card-body">
-        <div className="mx-3">
-          <h5 className="card-title">
-            {loading ? (
-              skeleton({ widthCls: 'w-32', heightCls: 'h-8' })
-            ) : (
-              <span className="text-base-content opacity-70">Research Intrests</span>
-            )}
-          </h5>
-        </div>
-        <div className="p-3 flow-root">
-          <div className="-m-1 flex flex-wrap justify-center">
-            {loading
-              ? renderSkeleton()
-              : research.map((research, index) => (
-                  <div
-                    key={index}
-                    className="m-1 text-xs inline-flex items-center font-bold leading-sm px-3 py-1 badge-info bg-opacity-90 rounded-full"
-                  >
-                    {research}
-                  </div>
-                ))}
-          </div>
+    <div className="card shadow-md bg-base-100 border border-base-300 rounded-box transition-all duration-300">
+      <div className="card-body px-6 py-5">
+        <h3 className="text-lg font-semibold text-base-content mb-3 border-b border-base-300 pb-2">
+          {loading ? (
+            skeleton({ widthCls: 'w-48', heightCls: 'h-6' })
+          ) : (
+            'Research Focus Areas'
+          )}
+        </h3>
+
+        <div className="space-y-2">
+          {loading
+            ? renderSkeleton()
+            : research.map((item, index) => (
+                <p
+                  key={index}
+                  className="text-base text-base-content font-light tracking-wide"
+                >
+                  • {item}
+                </p>
+              ))}
         </div>
       </div>
     </div>

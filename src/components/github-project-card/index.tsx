@@ -19,115 +19,69 @@ const GithubProjectCard = ({
   username: string;
   googleAnalyticsId?: string;
 }) => {
-  if (!loading && githubProjects.length === 0) {
-    return;
-  }
+  if (!loading && githubProjects.length === 0) return;
 
   const renderSkeleton = () => {
-    const array = [];
-    for (let index = 0; index < limit; index++) {
-      array.push(
-        <div className="card shadow-lg compact bg-base-100" key={index}>
-          <div className="flex justify-between flex-col p-8 h-full w-full">
-            <div>
-              <div className="flex items-center">
-                <span>
-                  <h5 className="card-title text-lg">
-                    {skeleton({
-                      widthCls: 'w-32',
-                      heightCls: 'h-8',
-                      className: 'mb-1',
-                    })}
-                  </h5>
-                </span>
-              </div>
-              <div className="mb-5 mt-1">
-                {skeleton({
-                  widthCls: 'w-full',
-                  heightCls: 'h-4',
-                  className: 'mb-2',
-                })}
-                {skeleton({ widthCls: 'w-full', heightCls: 'h-4' })}
-              </div>
-            </div>
-            <div className="flex justify-between">
-              <div className="flex flex-grow">
-                <span className="mr-3 flex items-center">
-                  {skeleton({ widthCls: 'w-12', heightCls: 'h-4' })}
-                </span>
-                <span className="flex items-center">
-                  {skeleton({ widthCls: 'w-12', heightCls: 'h-4' })}
-                </span>
-              </div>
-              <div>
-                <span className="flex items-center">
-                  {skeleton({ widthCls: 'w-12', heightCls: 'h-4' })}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>,
-      );
-    }
-
-    return array;
+    return Array.from({ length: limit }, (_, index) => (
+      <div key={index} className="border-l-2 border-base-300 pl-4 ml-2 mb-4">
+        <h5 className="text-base-content font-serif font-semibold">
+          {skeleton({ widthCls: 'w-3/4', heightCls: 'h-5' })}
+        </h5>
+        <p className="text-sm opacity-60 mt-1">
+          {skeleton({ widthCls: 'w-full', heightCls: 'h-4' })}
+        </p>
+        <div className="flex items-center text-sm gap-4 mt-2">
+          {skeleton({ widthCls: 'w-12', heightCls: 'h-4' })}
+          {skeleton({ widthCls: 'w-12', heightCls: 'h-4' })}
+          {skeleton({ widthCls: 'w-12', heightCls: 'h-4' })}
+        </div>
+      </div>
+    ));
   };
 
   const renderProjects = () => {
     return githubProjects.map((item, index) => (
       <a
-        className="card shadow-lg compact bg-base-100 cursor-pointer"
-        href={item.html_url}
         key={index}
+        href={item.html_url}
+        target="_blank"
+        rel="noreferrer"
         onClick={(e) => {
           e.preventDefault();
-
-          try {
-            if (googleAnalyticsId) {
-              ga.event('Click project', {
-                project: item.name,
-              });
+          if (googleAnalyticsId) {
+            try {
+              ga.event('Click project', { project: item.name });
+            } catch (error) {
+              console.error(error);
             }
-          } catch (error) {
-            console.error(error);
           }
-
           window?.open(item.html_url, '_blank');
         }}
+        className="block border-l-2 border-base-300 pl-4 ml-2 mb-4 hover:bg-base-200 rounded-md transition duration-200"
       >
-        <div className="flex justify-between flex-col p-8 h-full w-full">
-          <div>
-            <div className="flex items-center truncate">
-              <div className="card-title text-lg tracking-wide flex text-base-content opacity-60">
-                <MdInsertLink className="my-auto" />
-                <span>{item.name}</span>
-              </div>
-            </div>
-            <p className="mb-5 mt-1 text-base-content text-opacity-60 text-sm">
-              {item.description}
-            </p>
-          </div>
-          <div className="flex justify-between text-sm text-base-content text-opacity-60 truncate">
-            <div className="flex flex-grow">
-              <span className="mr-3 flex items-center">
-                <AiOutlineStar className="mr-0.5" />
-                <span>{item.stargazers_count}</span>
-              </span>
-              <span className="flex items-center">
-                <AiOutlineFork className="mr-0.5" />
-                <span>{item.forks_count}</span>
-              </span>
-            </div>
-            <div>
-              <span className="flex items-center">
-                <div
-                  className="w-3 h-3 rounded-full mr-1 opacity-60"
-                  style={{ backgroundColor: getLanguageColor(item.language) }}
-                />
-                <span>{item.language}</span>
-              </span>
-            </div>
-          </div>
+        <h5 className="text-base-content font-serif font-semibold text-sm flex items-center gap-2 mb-1">
+          <MdInsertLink className="opacity-60" />
+          <span>{item.name}</span>
+        </h5>
+        {item.description && (
+          <p className="text-sm text-base-content opacity-70 font-light mb-2">
+            {item.description}
+          </p>
+        )}
+        <div className="flex text-sm text-base-content opacity-60 gap-4">
+          <span className="flex items-center gap-1">
+            <AiOutlineStar /> {item.stargazers_count}
+          </span>
+          <span className="flex items-center gap-1">
+            <AiOutlineFork /> {item.forks_count}
+          </span>
+          <span className="flex items-center gap-1">
+            <div
+              className="w-3 h-3 rounded-full"
+              style={{ backgroundColor: getLanguageColor(item.language) }}
+            />
+            {item.language}
+          </span>
         </div>
       </a>
     ));
@@ -136,39 +90,27 @@ const GithubProjectCard = ({
   return (
     <Fragment>
       <div className="col-span-1 lg:col-span-2">
-        <div className="grid grid-cols-2 gap-6">
-          <div className="col-span-2">
-            <div className="card compact bg-base-100 shadow bg-opacity-40">
-              <div className="card-body">
-                <div className="mx-3 flex items-center justify-between mb-2">
-                  <h5 className="card-title">
-                    {loading ? (
-                      skeleton({ widthCls: 'w-40', heightCls: 'h-8' })
-                    ) : (
-                      <span className="text-base-content opacity-70">
-                        {header}
-                      </span>
-                    )}
-                  </h5>
-                  {loading ? (
-                    skeleton({ widthCls: 'w-10', heightCls: 'h-5' })
-                  ) : (
-                    <a
-                      href={`https://github.com/${username}?tab=repositories`}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-base-content opacity-50 hover:underline"
-                    >
-                      See All
-                    </a>
-                  )}
-                </div>
-                <div className="col-span-2">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {loading ? renderSkeleton() : renderProjects()}
-                  </div>
-                </div>
-              </div>
+        <div className="card compact bg-base-100 shadow-md border border-base-300">
+          <div className="card-body px-6 py-5">
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-lg font-semibold text-base-content">
+                {loading
+                  ? skeleton({ widthCls: 'w-40', heightCls: 'h-6' })
+                  : header}
+              </h3>
+              {!loading && (
+                <a
+                  href={`https://github.com/${username}?tab=repositories`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-sm text-base-content opacity-50 hover:underline"
+                >
+                  See All
+                </a>
+              )}
+            </div>
+            <div className="flex flex-col gap-3">
+              {loading ? renderSkeleton() : renderProjects()}
             </div>
           </div>
         </div>
