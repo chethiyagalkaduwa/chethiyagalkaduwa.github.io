@@ -96,14 +96,14 @@ const CONFIG = {
     },
     {
       company: 'Cove Island, Sri Lanka',
-      position: 'Python Developer',
+      position: 'Python Developer (AI/ML)',
       from: 'July 2024',
       to: 'December 2024',
       companyLink: 'https://coveisland.lk',
     },
     {
       company: 'iVedha, Canada',
-      position: 'Software Engineer',
+      position: 'Full-Stack Software Engineer',
       from: 'January 2024',
       to: 'July 2024',
       companyLink: 'https://ivedha.com',
