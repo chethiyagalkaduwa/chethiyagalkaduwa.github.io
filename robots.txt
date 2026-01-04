@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chethiyagalkaduwa.github.io/sitemap.xml
