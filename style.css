@@ -579,3 +579,30 @@ h2{
 @media (max-width: 900px){
   .card{ grid-column: span 12; }       /* 1 per row on mobile */
 }
+
+
+
+/* News title: blue + slow “beep” pulse */
+#news{
+  display: inline-block;       /* so transform looks clean */
+  animation: newsBeep 2.2s ease-in-out infinite;
+  text-shadow: 0 0 0 rgba(30,108,255,0);  /* start subtle */
+}
+
+@keyframes newsBeep{
+  0%, 100%{
+    transform: scale(1);
+    opacity: 1;
+    text-shadow: 0 0 0 rgba(30,108,255,0);
+  }
+  50%{
+    transform: scale(1.03);  /* tiny pulse */
+    opacity: 0.85;
+    text-shadow: 0 0 12px rgba(30,108,255,0.45); /* glow */
+  }
+}
+
+/* Optional: respect reduced-motion */
+@media (prefers-reduced-motion: reduce){
+  #news{ animation: none; }
+}
