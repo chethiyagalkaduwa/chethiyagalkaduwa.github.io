@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="/style.css" />
 
   <!-- Open Graph -->
-  <meta property="og:type" content="profile" />
+  <meta property="og:type" content="website" />
   <meta property="og:title" content="Chethiya Galkaduwa | Computer Science PhD Student" />
   <meta property="og:description" content="Brain-inspired computer vision, recurrent top-down/bottom-up models, and biologically plausible learning." />
   <meta property="og:url" content="https://chethiyagalkaduwa.github.io/" />
@@ -47,6 +47,14 @@
   {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://chethiyagalkaduwa.github.io/#website",
+        "url": "https://chethiyagalkaduwa.github.io/",
+        "name": "Chethiya Galkaduwa",
+        "alternateName": "Chethiya Galkaduwa — PhD Student",
+        "publisher": { "@id": "https://chethiyagalkaduwa.github.io/#person" }
+      },
       {
         "@type": "ImageObject",
         "@id": "https://chethiyagalkaduwa.github.io/#profile-image",
@@ -69,7 +77,7 @@
           "name": "Indiana University Indianapolis"
         },
         "sameAs": [
-          "https://www.linkedin.com/in/chethiya-galkaduwa/",
+          "https://www.linkedin.com/in/chethiyagalkaduwa/",
           "https://github.com/chethiyagalkaduwa",
           "https://scholar.google.com/citations?user=mAjQ0oMAAAAJ&hl=en"
         ]
@@ -80,7 +88,8 @@
         "url": "https://chethiyagalkaduwa.github.io/",
         "name": "Chethiya Galkaduwa | Computer Science PhD Student",
         "about": { "@id": "https://chethiyagalkaduwa.github.io/#person" },
-        "primaryImageOfPage": { "@id": "https://chethiyagalkaduwa.github.io/#profile-image" }
+        "primaryImageOfPage": { "@id": "https://chethiyagalkaduwa.github.io/#profile-image" },
+        "isPartOf": { "@id": "https://chethiyagalkaduwa.github.io/#website" }
       }
     ]
   }
