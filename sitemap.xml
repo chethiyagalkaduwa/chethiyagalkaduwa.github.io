@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
+  <!-- Homepage -->
   <url>
     <loc>https://chethiyagalkaduwa.github.io/</loc>
     <changefreq>weekly</changefreq>
@@ -11,6 +12,20 @@
       <image:loc>https://chethiyagalkaduwa.github.io/assets/profile.jpg</image:loc>
       <image:caption>Chethiya Galkaduwa</image:caption>
     </image:image>
+  </url>
+
+  <!-- Research page -->
+  <url>
+    <loc>https://chethiyagalkaduwa.github.io/research/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Publications page -->
+  <url>
+    <loc>https://chethiyagalkaduwa.github.io/publications/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 
 </urlset>
