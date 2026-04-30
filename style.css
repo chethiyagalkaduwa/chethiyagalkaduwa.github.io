@@ -642,3 +642,10 @@ h2{
 .section-nav a:hover {
   text-decoration: underline;
 }
+
+.availability {
+  margin-top: 10px;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #2563eb; /* subtle blue */
+}
