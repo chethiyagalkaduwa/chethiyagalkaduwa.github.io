@@ -190,3 +190,17 @@
     font-size:12px;
   }
 }
+
+#chatResponse{
+  margin-top:16px;
+  padding-top:16px;
+  border-top:1px solid #eeeeee;
+  opacity:0;
+  transform:translateY(10px);
+  transition:opacity .35s ease, transform .35s ease;
+}
+
+#chatResponse.show{
+  opacity:1;
+  transform:translateY(0);
+}

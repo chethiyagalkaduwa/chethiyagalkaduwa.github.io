@@ -67,8 +67,21 @@ function chatReply(type){
 
   const reply = replies[type];
 
-  document.getElementById("chatResponse").innerHTML = `
+  const chatResponse = document.getElementById("chatResponse");
+
+  chatResponse.classList.remove("show");
+
+  chatResponse.innerHTML = `
     <div class="chat-response-title">${reply.title}</div>
     <p class="chat-response-text">${reply.text}</p>
   `;
+
+  setTimeout(() => {
+    chatResponse.classList.add("show");
+
+    chatResponse.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest"
+    });
+  }, 80);
 }
