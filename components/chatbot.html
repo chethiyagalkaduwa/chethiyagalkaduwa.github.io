@@ -1,0 +1,49 @@
+<div class="chat-widget" id="chatWidget">
+
+  <div class="chat-box" id="chatBox">
+    <div class="chat-header">
+      <h3>Ask about my work</h3>
+      <button id="closeChat" class="chat-close" aria-label="Close chat">×</button>
+    </div>
+
+    <div class="chat-body">
+      <p class="chat-intro">
+        Hi, I'm Chethiya's AI assistant. I can answer questions about his research,
+        projects, publications, teaching, and experience.
+      </p>
+
+      <button class="chat-option" onclick="chatReply('research')">
+        <span>Research</span>
+      </button>
+
+      <button class="chat-option" onclick="chatReply('projects')">
+        <span>Projects</span>
+      </button>
+
+      <button class="chat-option" onclick="chatReply('publications')">
+        <span>Publications</span>
+      </button>
+
+      <button class="chat-option" onclick="chatReply('experience')">
+        <span>Experience</span>
+      </button>
+
+      <button class="chat-option" onclick="chatReply('internship')">
+        <span>Internships</span>
+      </button>
+
+        <div id="chatResponse"></div>
+
+        <div class="chat-note">
+            <strong>🤖 I'm still in training!</strong><br>
+            I'm still teaching this assistant about me. For now, it knows the basics but a much smarter AI with RAG and LLM superpowers is coming soon.
+        </div>
+
+    </div>
+  </div>
+
+  <button class="chat-toggle" id="chatToggle">
+    Ask Me
+  </button>
+
+</div>
