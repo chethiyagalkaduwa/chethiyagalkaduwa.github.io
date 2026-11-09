@@ -1,0 +1,13 @@
+name = "chethiya-chat-api"
+main = "worker.js"
+compatibility_date = "2026-11-09"
+workers_dev = true
+
+# Limit requests per visitor.
+[[ratelimits]]
+name = "CHAT_RATE_LIMIT"
+namespace_id = "1001"
+
+[ratelimits.simple]
+limit = 10
+period = 60

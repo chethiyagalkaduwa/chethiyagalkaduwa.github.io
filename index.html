@@ -821,11 +821,158 @@
     
   </script>
 
-  <!-- Chatbot container -->
+  <!-- Chatbot container
   <div id="chatbot-container"></div>
 
   <link rel="stylesheet" href="css/chatbot.css">
-  <script src="js/chatbot.js"></script>
+  <script src="js/chatbot.js"></script> -->
+
+
+  <!-- ============================= -->
+  <!--     AI PORTFOLIO CHATBOT      -->
+  <!-- ============================= -->
+
+  <div id="chatbot-container">
+
+    <div class="chat-widget" id="chatWidget">
+
+      <!-- Floating button -->
+      <button
+        class="chat-toggle"
+        id="chatToggle"
+        type="button"
+        aria-label="Open AI assistant"
+        aria-controls="chatBox"
+        aria-expanded="false"
+      >
+        <span class="chat-toggle-icon">✦</span>
+        <span>Ask Me</span>
+      </button>
+
+      <!-- Chat window -->
+      <section
+        class="chat-box"
+        id="chatBox"
+        role="dialog"
+        aria-label="Chethiya's AI assistant"
+        hidden
+      >
+
+        <!-- Header -->
+        <header class="chat-header">
+          <div class="chat-header-info">
+            <div class="chat-avatar">✦</div>
+
+            <div>
+              <h3>Chethiya's AI Assistant</h3>
+              <p>
+                <span class="chat-status-dot"></span>
+                Powered by NVIDIA Nemotron
+              </p>
+            </div>
+          </div>
+
+          <button
+            class="chat-close"
+            id="closeChat"
+            type="button"
+            aria-label="Close chat"
+          >×</button>
+        </header>
+
+        <!-- Conversation -->
+        <div
+          class="chat-messages"
+          id="chatMessages"
+          role="log"
+          aria-live="polite"
+          aria-relevant="additions"
+        >
+          <div class="chat-message assistant">
+            <div class="chat-bubble">
+              Hi! 👋 I'm Chethiya's AI assistant.
+
+              Ask me about his research, publications,
+              projects, teaching experience, or
+              internship interests.
+            </div>
+          </div>
+        </div>
+
+        <!-- Suggested questions -->
+        <div class="chat-suggestions" id="chatSuggestions">
+          <button type="button" data-prompt="Tell me about Chethiya's research">
+            🔬 Research
+          </button>
+
+          <button type="button" data-prompt="What projects has Chethiya worked on?">
+            💻 Projects
+          </button>
+
+          <button type="button" data-prompt="What are Chethiya's publications?">
+            📄 Publications
+          </button>
+
+          <button type="button" data-prompt="Summarize Chethiya's professional experience">
+            💼 Experience
+          </button>
+
+          <button type="button" data-prompt="What internships is Chethiya seeking?">
+            🚀 Internships
+          </button>
+        </div>
+
+        <!-- Status / loading indicator -->
+        <div
+          class="chat-typing"
+          id="chatTyping"
+          role="status"
+          aria-live="polite"
+          hidden
+        >
+          <span class="typing-dot"></span>
+          <span class="typing-dot"></span>
+          <span class="typing-dot"></span>
+          <span class="typing-label">Thinking...</span>
+        </div>
+
+        <!-- Input -->
+        <form class="chat-input-area" id="chatForm">
+          <label for="chatInput" class="chat-visually-hidden">
+            Ask the assistant a question
+          </label>
+
+          <input
+            id="chatInput"
+            type="text"
+            placeholder="Ask me anything..."
+            maxlength="500"
+            autocomplete="off"
+            required
+          />
+
+          <button
+            id="chatSend"
+            type="submit"
+            aria-label="Send message"
+          >
+            ➤
+          </button>
+        </form>
+
+        <div class="chat-footer">
+          AI-generated answers may contain mistakes.
+        </div>
+
+      </section>
+
+    </div>
+
+  </div>
+
+  <link rel="stylesheet" href="css/chatbot.css">
+  <script src="js/chatbot.js" defer></script>
+
 
 
 </body>
