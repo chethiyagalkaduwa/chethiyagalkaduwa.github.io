@@ -500,3 +500,40 @@
     max-height: calc(100dvh - 100px);
   }
 }
+
+
+/* =====================================
+   IPHONE SAFARI KEYBOARD / ZOOM FIX
+   ===================================== */
+
+@media (max-width: 480px) {
+
+  /* Prevent Safari's automatic input zoom */
+  #chatbot-container .chat-input-area input {
+    font-size: 16px !important;
+  }
+
+  /* Keep chatbot inside mobile viewport */
+  #chatbot-container .chat-box {
+    position: fixed;
+    left: 10px;
+    right: 10px;
+    bottom: calc(70px + env(safe-area-inset-bottom));
+    width: auto;
+
+    height: min(
+      570px,
+      calc(100dvh - 90px - env(safe-area-inset-bottom))
+    );
+
+    max-height: calc(100dvh - 90px);
+  }
+
+  /* Avoid sideways scrolling */
+  #chatbot-container .chat-messages {
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-height: 0;
+  }
+}
+

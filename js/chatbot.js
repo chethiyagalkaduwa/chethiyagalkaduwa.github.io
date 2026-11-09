@@ -36,12 +36,20 @@ document.addEventListener("DOMContentLoaded", () => {
   // OPEN / CLOSE
   // ==========================================
 
+  
   function openChat() {
     box.hidden = false;
+
     toggle.setAttribute("aria-expanded", "true");
-    input.focus();
+    toggle.setAttribute("aria-label", "Close AI assistant");
+
+    // Focus the close button instead of the text input.
+    // Prevents the iPhone keyboard opening automatically.
+    closeBtn.focus({ preventScroll: true });
+
     scrollToBottom();
   }
+
 
   function closeChat() {
     box.hidden = true;
